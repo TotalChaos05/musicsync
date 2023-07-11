@@ -42,8 +42,8 @@ fn convert<S: AsRef<OsStr>>(input: S, output: S, cover: S, width: u32, height: u
     let output = child.wait_with_output().expect("failed to wait on child");
 
     if !output.status.success() {
-        eprintln!("ffmpeg failed with {}", output.status);
+        println!("ffmpeg failed with {}", output.status);
         //println!("{}", String::from_utf8_lossy(&output.stdout));
-        eprintln!("{}", String::from_utf8_lossy(&output.stderr));
+        println!("{}", String::from_utf8_lossy(&output.stderr));
     }
 }
